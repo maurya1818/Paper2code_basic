@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pymupdf
+pdfplumber
+langchain
+llama-index
+sqlalchemy
+python-dotenv
+google-generativeai
+groq
+python-multipart

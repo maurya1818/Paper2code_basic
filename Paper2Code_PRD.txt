@@ -1,0 +1,338 @@
+# Product Requirements Document (PRD)
+
+## Project Title
+Paper2Code – Research Paper to Executable Code Generator
+
+## Overview
+Paper2Code is an AI-powered system that converts AI/ML research papers into executable starter code and experiment pipelines. The goal of the project is to automate the extraction of important implementation details from research papers and generate runnable project structures, training scripts, configurations, and experiment workflows.
+
+This project focuses on reproducibility in AI/ML research by reducing the manual effort required to understand and implement papers.
+
+The basic version of the system will support:
+- PDF paper upload
+- Text extraction
+- Section parsing
+- Hyperparameter extraction
+- Model and dataset identification
+- Code generation using LLMs
+- Training script generation
+- Basic debugging and validation
+
+The project is intended as a foundational version that can later evolve into a multi-agent research automation platform.
+
+# Problem Statement
+
+Researchers and students spend significant time reading papers and manually implementing architectures, datasets, and training pipelines.
+
+Challenges include:
+- Understanding complex architectures
+- Extracting hyperparameters manually
+- Rebuilding training loops from scratch
+- Reproducing experiments
+- Managing multiple implementation details across papers
+
+Paper2Code aims to automate the first implementation draft from research papers.
+
+# Goals
+
+## Primary Goals
+- Convert research papers into executable starter code
+- Extract important implementation details automatically
+- Generate reproducible experiment structures
+- Reduce implementation time for ML papers
+
+## Secondary Goals
+- Support configurable experiments
+- Generate modular code
+- Provide debugging and logging support
+- Create extensible architecture for future agentic workflows
+
+# Scope of Basic MVP
+
+## Included Features
+
+### 1. Research Paper Upload
+Users can upload:
+- PDF papers
+- arXiv papers
+- Research article text
+
+### 2. PDF/Text Parsing
+System extracts:
+- Title
+- Abstract
+- Methodology section
+- Model architecture references
+- Hyperparameters
+- Dataset names
+- Training details
+
+### 3. Information Extraction
+Extract:
+- Learning rate
+- Batch size
+- Epochs
+- Optimizer
+- Loss function
+- Dataset
+- Model architecture
+
+### 4. LLM-Based Code Generation
+Generate:
+- PyTorch training script
+- Model skeleton
+- Dataset loader
+- Config file
+- Requirements file
+
+### 5. Project Structure Generator
+Auto-create:
+project/
+│
+├── train.py
+├── model.py
+├── dataset.py
+├── config.yaml
+├── requirements.txt
+└── README.md
+
+### 6. Basic Experiment Logging
+Generate:
+- Console logs
+- Training status logs
+- Error logs
+
+### 7. Simple Validation
+Validate:
+- Missing dependencies
+- Missing hyperparameters
+- Invalid configurations
+
+# Out of Scope for MVP
+
+These features are future enhancements:
+- Full paper reproduction accuracy
+- Multi-agent orchestration
+- Automatic benchmark matching
+- GPU cluster execution
+- Fine-tuning models automatically
+- Human-in-the-loop review system
+- Multi-paper comparison
+- Autonomous debugging agents
+- RLHF-based correction systems
+
+# Target Users
+
+## Primary Users
+- AI/ML students
+- Researchers
+- Developers learning ML papers
+- Hackathon participants
+
+## Secondary Users
+- Research engineers
+- AI startups
+- Academic institutions
+
+# Functional Requirements
+
+## FR-1: Upload Research Paper
+### Description
+User uploads PDF or provides paper URL.
+
+### Inputs
+- PDF file
+- arXiv URL
+
+### Outputs
+- Extracted text
+
+## FR-2: Extract Key Information
+### Description
+System extracts implementation-related details.
+
+### Extracted Fields
+- Model name
+- Dataset
+- Hyperparameters
+- Training pipeline
+- Evaluation metrics
+
+## FR-3: Generate Code
+### Description
+Use LLM to generate starter implementation.
+
+### Outputs
+- train.py
+- model.py
+- dataset.py
+- config.yaml
+
+## FR-4: Create Configurable Pipeline
+### Description
+Users can modify:
+- Batch size
+- Learning rate
+- Dataset path
+- Epochs
+
+## FR-5: Logging and Error Handling
+### Description
+Track:
+- Generation errors
+- Missing sections
+- Invalid outputs
+
+# Non-Functional Requirements
+
+## Performance
+- Process paper within 1–3 minutes
+- Generate starter code within 60 seconds
+
+## Scalability
+- Modular architecture
+- Easily extendable agents/modules
+
+## Reliability
+- Graceful failure handling
+- Logging system
+
+## Maintainability
+- Clean modular backend
+- Config-driven architecture
+
+# Suggested Tech Stack
+
+## Frontend
+- Next.js or React
+
+## Backend
+- FastAPI or Flask
+
+## LLM Integration
+- DeepSeek V3 via OpenRouter
+
+## PDF Processing
+- PyMuPDF
+- pdfplumber
+
+## NLP Processing
+- LangChain
+- LlamaIndex
+
+## Code Generation
+- Prompt-engineered LLM workflows
+
+## Database
+- SQLite for MVP
+- PostgreSQL later
+
+# System Architecture
+
+## Flow
+
+User Uploads Paper
+        ↓
+PDF Parser
+        ↓
+Text Extraction
+        ↓
+Section Identification
+        ↓
+Information Extraction
+        ↓
+LLM Prompt Builder
+        ↓
+Code Generator
+        ↓
+Project Structure Builder
+        ↓
+Downloadable Output
+
+# Suggested Folder Structure
+
+paper2code/
+│
+├── backend/
+│   ├── parser/
+│   ├── extractor/
+│   ├── generator/
+│   ├── validator/
+│   └── api/
+│
+├── frontend/
+│
+├── outputs/
+│
+├── logs/
+│
+└── prompts/
+
+# User Flow
+
+1. User uploads research paper
+2. System extracts paper text
+3. System identifies important sections
+4. LLM generates implementation plan
+5. Code files are generated
+6. User downloads generated project
+
+# API Endpoints
+
+## POST /upload-paper
+Uploads PDF
+
+## POST /extract
+Extracts implementation details
+
+## POST /generate-code
+Generates code files
+
+## GET /download-project
+Downloads generated project
+
+# Risks and Limitations
+
+## Risks
+- Papers may omit implementation details
+- Generated code may not fully reproduce results
+- Hallucinated code sections from LLM
+
+## Mitigation
+- Add confidence scoring
+- Add warnings for missing details
+- Allow manual editing
+
+# Future Roadmap
+
+## Phase 2
+- Multi-agent orchestration
+- Human review loop
+- Automated debugging
+- Benchmark evaluation
+
+## Phase 3
+- Autonomous reproduction system
+- Experiment optimization
+- Fine-tuning assistant
+- Multi-paper synthesis
+
+# Success Metrics
+
+## MVP Success Criteria
+- Successfully parse 80% of uploaded papers
+- Generate runnable starter code
+- Reduce manual implementation time significantly
+
+# Deliverables
+
+## MVP Deliverables
+- Web application
+- PDF parser
+- Information extraction module
+- LLM code generator
+- Downloadable generated projects
+
+# Conclusion
+
+Paper2Code is a foundational AI research automation platform designed to simplify research paper implementation workflows. The MVP focuses on converting AI/ML papers into executable starter projects using LLM-powered extraction and code generation pipelines.

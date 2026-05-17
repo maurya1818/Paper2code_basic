@@ -1,0 +1,26 @@
+# Environment Variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+backend/venv/
+backend/paper2code.db
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.npm/
+
+# IDEs
+.vscode/
+.idea/
+
+# Mac
+.DS_Store
+
+# Outputs/Logs
+outputs/
+logs/
