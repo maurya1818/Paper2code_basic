@@ -4,7 +4,7 @@ Paper2Code is an AI-powered platform that converts AI/ML research papers into ex
 
 ## Features
 
-- **PDF Parsing:** Upload any machine learning research paper PDF to extract its raw text using `PyMuPDF`.
+- **PDF Parsing:** Upload any machine learning research paper PDF to extract its raw text using `PyMuPDF`. Sample PDFs given.
 - **Intelligent Extraction:** Uses Google Gemini (`gemini-2.5-flash`) to identify and extract crucial hyperparameters, dataset names, and architectural summaries into a structured format.
 - **Code Generation:** Automatically generates a PyTorch implementation based on the extracted details, including `model.py`, `dataset.py`, `train.py`, and `config.yaml`.
 - **Modern UI:** Built with React, Vite, and Tailwind CSS v4 for a seamless and responsive user experience.
