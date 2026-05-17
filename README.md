@@ -82,3 +82,12 @@ The frontend application will be available at `http://localhost:5173`.
 - Support for Groq and DeepSeek models.
 - Downloadable ZIP files for the generated code.
 - Multi-agent orchestration for autonomous debugging.
+
+
+# Upload UI
+<img width="1392" height="556" alt="image" src="https://github.com/user-attachments/assets/f44de5d7-0703-40ae-b13a-1ef77067b614" />
+
+# Generated File
+<img width="1355" height="945" alt="image" src="https://github.com/user-attachments/assets/89d3894f-a5fc-4f8c-b25e-8fa81829970a" />
+
+
